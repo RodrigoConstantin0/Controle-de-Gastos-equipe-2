@@ -1,16 +1,16 @@
 let gastos = [
-    {mes: 'Janeiro', gastosMensais: {}},
-    {mes: 'Fevereiro', gastosMensais: {}},
-    {mes: 'Março', gastosMensais: {}},
-    {mes: 'Abril', gastosMensais: {}},
-    {mes: 'Maio', gastosMensais: {}},
-    {mes: 'Junho', gastosMensais: {}},
-    {mes: 'Julho', gastosMensais: {}},
-    {mes: 'Agosto', gastosMensais: {}},
-    {mes: 'Setembro', gastosMensais: {}},
-    {mes: 'Outubro', gastosMensais: {}},
-    {mes: 'Novembro', gastosMensais:{}},
-    {mes: 'Dezembro', gastosMensais: {}},
+    {mes: 'Janeiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Fevereiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Março', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Abril', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Maio', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Junho', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Julho', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Agosto', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Setembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Outubro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Novembro', gastosMensais:{}, totalGastos: 0, Sobrou: 0 },
+    {mes: 'Dezembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
 ];
 
 function preencherGastosDoMes(mes) {
@@ -73,4 +73,5 @@ totalGastosDoMes(1) //Fevereiro
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
     console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
+    gastos[mes].totalGastos = totalGastosDoMes(i).toFixed(2)
 }
