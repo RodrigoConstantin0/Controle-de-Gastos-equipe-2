@@ -1,5 +1,10 @@
 # Projeto final #1133
 
+# Equipe 3 - Membros
+ - Douglas Caique()
+ - Juliana Mesquita()
+ - Rodrigo Constantino()
+
 Para finalizar o modulo `Lógica de Programação I` vamos desenvolver um programa que faça o controle de uma lista.
 
 Teremos algumas opções de listas que podem ser escolhidas para o desenvolvimento desse projeto:
@@ -10,7 +15,7 @@ Teremos algumas opções de listas que podem ser escolhidas para o desenvolvimen
 
 [Lista de supermercado](https://www.notion.so/Lista-de-supermercado-5fe702005d7443bbbb31b3720c79c336?pvs=21)
 
-[Lista de gastos mensais](https://www.notion.so/Lista-de-gastos-mensais-21ce10dbdee74ac6b640afa38fa2ecff?pvs=21)
+[Lista de gastos mensais](https://www.notion.so/Lista-de-gastos-mensais-21ce10dbdee74ac6b640afa38fa2ecff?pvs=21)  
 
 Cada grupo deve escolher **apenas um** dos temas acima para o desenvolvimento do projeto final.
 
