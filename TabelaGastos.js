@@ -34,10 +34,27 @@ function editarGastosDoMes(mes) {
         let novoValor = parseFloat(prompt(`Digite o novo valor para ${campo} em ${gastos[mes].mes}:`));
         gastos[mes].gastosMensais[campo] = novoValor
         console.log(`Gasto editado com sucesso! Novo valor de ${campo} em ${gastos[mes].mes}: ${novoValor}`)
+        
+        let deletar = prompt(`Deseja deletar algum gasto de ${gastos[mes].mes}? (sim/não)`);
+        if (deletar.toLowerCase() === 'sim') {
+            let tipoGasto = prompt(`Digite o tipo de gasto que deseja deletar de ${gastos[mes].mes}:`);
+            deletarGastoDoMes(mes, tipoGasto);
+        }
     } else {
         console.log(`Campo inválido. Certifique-se de digitar um dos campos válidos: Energia, Água, Aluguel, Escola, Supermercado`)
     }
 }
+function deletarGastoDoMes(mes, tipoGasto) {
+    tipoGasto = tipoGasto.charAt(0).toUpperCase() + tipoGasto.slice(1).toLowerCase();
+
+    if (tipoGasto in gastos[mes].gastosMensais) {
+        delete gastos[mes].gastosMensais[tipoGasto];
+        console.log(`Gasto de ${tipoGasto} em ${gastos[mes].mes} foi removido.`);
+    } else {
+        console.log(`Tipo de2 gasto inválido ou inexistente para o mês de ${gastos[mes].mes}.`);
+    }
+}
+editarGastosDoMes(0);
 
 function totalGastosDoMes(mes) {
     let gastosMensais = gastos[mes].gastosMensais;
