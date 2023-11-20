@@ -1,12 +1,37 @@
 # Projeto final #1133
-
-# Equipe 3 - Membros
- - Douglas Caique
- - Juliana Mesquita
- - Rodrigo Constantino
-
 Para finalizar o modulo `Lógica de Programação I` vamos desenvolver um programa que faça o controle de uma lista.
 
+Este projeto visa criar uma aplicação para controle de gastos pessoais.
+
+# Equipe 2 - Membros
+ - <a href="https://github.com/douglascaique" target="_blank">Douglas Caique</a>
+ - <a href="https://github.com/JulianaMariaSousaMesquita" target="_blank">Juliana Mesquita</a>
+ - <a href="https://github.com/RodrigoConstantin0" target="_blank">Rodrigo Constantino</a>
+
+## Funcionalidades
+- Criar lista de gastos ✅
+- Criar função que armazena itens na lista ✅
+- Criar função de deletar gasto 🛠️
+- Criar função de editar gasto ✅
+- Criar função que retorna total gasto por mês 🛠️
+- Criar função que retorna total gasto no ano 🛠️
+- Adicionar orçamento total de cada mês 🛠️
+- Criar função que retorna o total gasto em cada mês e informar se ficou dentro do orçamento 🛠️
+- Criar prompts de entrada ✅
+- Criar front-end em HTML (se tivermos tempo) 🛠️
+	- Cabeçalho 🛠️
+	- Rodapé 🛠️
+	- Corpo 🛠️
+- Criar estilo para formulário (Se tivermos tempo) 🛠️
+
+## Como Contribuir
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas mudanças (`git commit -m 'Adiciona nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Projeto descrição
 Teremos algumas opções de listas que podem ser escolhidas para o desenvolvimento desse projeto:
 
 [Lista de tarefas ](https://www.notion.so/Lista-de-tarefas-d3ae499d2613419594271eb252b0c294?pvs=21)
