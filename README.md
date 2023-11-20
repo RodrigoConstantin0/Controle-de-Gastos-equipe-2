@@ -1,9 +1,9 @@
 # Projeto final #1133
 
 # Equipe 3 - Membros
- - Douglas Caique()
- - Juliana Mesquita()
- - Rodrigo Constantino()
+ - Douglas Caique
+ - Juliana Mesquita
+ - Rodrigo Constantino
 
 Para finalizar o modulo `Lógica de Programação I` vamos desenvolver um programa que faça o controle de uma lista.
 
