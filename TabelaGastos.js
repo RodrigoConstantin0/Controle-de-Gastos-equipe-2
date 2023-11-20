@@ -39,6 +39,21 @@ function editarGastosDoMes(mes) {
     }
 }
 
-console.log(gastos)
+function totalGastosDoMes(mes) {
+    let gastosMensais = gastos[mes].gastosMensais;
+    let total = 0
+    for (let categoria in gastosMensais) {
+        total += gastosMensais[categoria]
+    }
+    return total
+}
 
-editarGastosDoMes(0)
+console.log(gastos)
+editarGastosDoMes(0) //Janeiro
+totalGastosDoMes(0) //Janeiro
+totalGastosDoMes(1) //Fevereiro
+
+//Gastos de todos os meses
+for (let i = 0; i < gastos.length; i++) {
+    console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
+}
