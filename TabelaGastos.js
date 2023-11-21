@@ -75,13 +75,68 @@ function totalGastosDoMes(mes) {
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
     console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
-    gastos[mes].totalGastos = totalGastosDoMes(i).toFixed(2)
+    gastos[i].totalGastos = totalGastosDoMes(i).toFixed(2);
 }
 
-//Gastos de todos os meses
-for (let i = 0; i < gastos.length; i++) {
-    console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
-    gastos[i].totalGastos = totalGastosDoMes(i).toFixed(2)  
+
+//total gastos no ano
+function totalAno() {
+    let energia = totalEnergia()
+    let totaisNoAno = {
+        energia: totalEnergia(),
+        agua: totalAgua(),
+        aluguel: totalAluguel(),
+        escola: totalEscola(),
+        supermercado: totalSupermercado()
+    }
+    // console.log(`${JSON.stringify(totaisNoAno)}`)
+    console.log(energia)
+}
+
+
+//Funções por tipo de gasto
+
+function totalEnergia() {
+    let totalAnualEnergia = 0;
+    for (let i = 0; i < gastos.length; i++) {
+        totalAnualEnergia += gastos[i].gastosMensais.Energia
+    }
+}
+
+//Agua
+function totalAgua() {
+    let totalAnualAgua = 0;
+
+    for (let i = 0; i < gastos.length; i++) {
+        totalAnualAgua += gastos[i].gastosMensais.Agua
+    }
+}
+
+//Aluguel
+function totalAluguel() {
+    let totalAnualAluguel = 0;
+
+    for (let i = 0; i < gastos.length; i++) {
+        totalAnualAluguel += gastos[i].gastosMensais.Aluguel
+    }
+}
+
+//Escola
+function totalEscola() {
+    let totalAnualEscola = 0;
+
+    for (let i = 0; i < gastos.length; i++) {
+        totalAnualEscola += gastos[i].gastosMensais.Escola
+    }
+}
+
+//Supermercado
+function totalSupermercado() {
+    let totalAnualSupermercado = 0;
+
+    for (let i = 0; i < gastos.length; i++) {
+        totalAnualSupermercado += gastos[i].gastosMensais.Supermercado
+    }
 }
 
 // Chamadas de funções
@@ -90,3 +145,4 @@ editarGastosDoMes(0) //Janeiro
 totalGastosDoMes(0) //Janeiro
 totalGastosDoMes(1) //Fevereiro
 orcamentoTotal()
+totalAno()
