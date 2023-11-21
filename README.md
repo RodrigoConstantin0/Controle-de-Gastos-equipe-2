@@ -3,6 +3,10 @@ Para finalizar o modulo `Lógica de Programação I` vamos desenvolver um progra
 
 Este projeto visa criar uma aplicação para controle de gastos pessoais.
 
+#Link de acesso ao projeto do grupo 2
+
+[Tabela Gastos ](https://github.com/RodrigoConstantin0/Controle-de-Gastos-equipe-2/assets/137124681/6b63574e-b20a-45f9-93fb-5ffec1c4215d)
+
 # Equipe 2 - Membros
  - <a href="https://github.com/douglascaique" target="_blank">Douglas Caique</a>
  - <a href="https://github.com/JulianaMariaSousaMesquita" target="_blank">Juliana Mesquita</a>
