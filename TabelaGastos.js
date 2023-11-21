@@ -15,7 +15,7 @@ let gastos = [
 
 function preencherGastosDoMes(mes) {
     gastos[mes].gastosMensais.Energia = parseFloat(prompt(`Digite o valor gasto com Energia em ${gastos[mes].mes}`))
-    gastos[mes].gastosMensais.Água = parseFloat(prompt(`Digite o valor gasto com Água em ${gastos[mes].mes}`))
+    gastos[mes].gastosMensais.Agua = parseFloat(prompt(`Digite o valor gasto com Agua em ${gastos[mes].mes}`))
     gastos[mes].gastosMensais.Aluguel = parseFloat(prompt(`Digite o valor gasto com Aluguel em ${gastos[mes].mes}`))
     gastos[mes].gastosMensais.Escola = parseFloat(prompt(`Digite o valor gasto com Escola em ${gastos[mes].mes}`))
     gastos[mes].gastosMensais.Supermercado = parseFloat(prompt(`Digite o valor gasto com Supermercado em ${gastos[mes].mes}`))
@@ -27,7 +27,7 @@ for (let i = 0; i < gastos.length; i++) {
 }
 
 function editarGastosDoMes(mes) {
-    let campo = prompt(`Digite o campo que deseja editar em ${gastos[mes].mes} (Energia, Água, Aluguel, Escola, Supermercado):`)
+    let campo = prompt(`Digite o campo que deseja editar em ${gastos[mes].mes} (Energia, Agua, Aluguel, Escola, Supermercado):`)
     campo = campo.charAt(0).toUpperCase() + campo.slice(1).toLowerCase()
 
     if (campo in gastos[mes].gastosMensais) {
@@ -41,7 +41,7 @@ function editarGastosDoMes(mes) {
             deletarGastoDoMes(mes, tipoGasto);
         }
     } else {
-        console.log(`Campo inválido. Certifique-se de digitar um dos campos válidos: Energia, Água, Aluguel, Escola, Supermercado`)
+        console.log(`Campo inválido. Certifique-se de digitar um dos campos válidos: Energia, Agua, Aluguel, Escola, Supermercado`)
     }
 }
 function deletarGastoDoMes(mes, tipoGasto) {
