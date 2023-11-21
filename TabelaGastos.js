@@ -81,7 +81,6 @@ for (let i = 0; i < gastos.length; i++) {
 
 //total gastos no ano
 function totalAno() {
-    let energia = totalEnergia()
     let totaisNoAno = {
         energia: totalEnergia(),
         agua: totalAgua(),
@@ -89,18 +88,17 @@ function totalAno() {
         escola: totalEscola(),
         supermercado: totalSupermercado()
     }
-    // console.log(`${JSON.stringify(totaisNoAno)}`)
-    console.log(energia)
+    console.log(`${JSON.stringify(totaisNoAno)}`)
 }
 
 
 //Funções por tipo de gasto
-
 function totalEnergia() {
     let totalAnualEnergia = 0;
     for (let i = 0; i < gastos.length; i++) {
-        totalAnualEnergia += gastos[i].gastosMensais.Energia
+        totalAnualEnergia += gastos[i].gastosMensais.Energia || 0
     }
+    return totalAnualEnergia
 }
 
 //Agua
@@ -108,8 +106,9 @@ function totalAgua() {
     let totalAnualAgua = 0;
 
     for (let i = 0; i < gastos.length; i++) {
-        totalAnualAgua += gastos[i].gastosMensais.Agua
+        totalAnualAgua += gastos[i].gastosMensais.Agua || 0
     }
+    return totalAnualAgua;
 }
 
 //Aluguel
@@ -117,8 +116,9 @@ function totalAluguel() {
     let totalAnualAluguel = 0;
 
     for (let i = 0; i < gastos.length; i++) {
-        totalAnualAluguel += gastos[i].gastosMensais.Aluguel
+        totalAnualAluguel += gastos[i].gastosMensais.Aluguel || 0
     }
+    return totalAnualAluguel;
 }
 
 //Escola
@@ -126,8 +126,9 @@ function totalEscola() {
     let totalAnualEscola = 0;
 
     for (let i = 0; i < gastos.length; i++) {
-        totalAnualEscola += gastos[i].gastosMensais.Escola
+        totalAnualEscola += gastos[i].gastosMensais.Escola || 0
     }
+    return totalAnualEscola;
 }
 
 //Supermercado
@@ -135,8 +136,9 @@ function totalSupermercado() {
     let totalAnualSupermercado = 0;
 
     for (let i = 0; i < gastos.length; i++) {
-        totalAnualSupermercado += gastos[i].gastosMensais.Supermercado
+        totalAnualSupermercado += gastos[i].gastosMensais.Supermercado || 0
     }
+    return totalAnualSupermercado;
 }
 
 // Chamadas de funções
