@@ -34,6 +34,26 @@ function preencherGastosDoMes(mes) {
 for (let i = 0; i < gastos.length; i++) {
     preencherGastosDoMes(i)
 }
+function menuEditarGastos(){
+    let continuar = true;
+    const meses = ['Janeiro','Fevereiro','Março',
+    'Abril','Maio','Junho','Julho','Agosto',
+    'Setembro','Outubro','Novembro','Dezembro'];
+
+    while (continuar){
+        let escolhaMes = prompt("Digite o nome do mês que deseja editar ou 'sair' para sair:");
+        let escolhaIndex = meses.indexOf(escolhaMes.charAt(0).toUpperCase() + escolhaMes.slice(1).toLowerCase());
+        
+        if (escolhaIndex !== -1){
+            editarGastosDoMes(escolhaIndex);
+        } else if (escolhaMes.toLowerCase() === 'sair'){
+            continuar = false;
+        } else {
+            console.log("Nome do mês inválido. Tente novamente ou digite 'sair' para sair.");
+        }
+    }
+}
+
 
 function editarGastosDoMes(mes) {
     let campo = prompt(`Digite o campo que deseja editar em ${gastos[mes].mes} (Energia, Agua, Aluguel, Escola, Supermercado):`)
@@ -143,7 +163,7 @@ function totalSupermercado() {
 
 // Chamadas de funções
 console.log(gastos)
-editarGastosDoMes(0) //Janeiro
+menuEditarGastos()
 totalGastosDoMes(0) //Janeiro
 totalGastosDoMes(1) //Fevereiro
 orcamentoTotal()
