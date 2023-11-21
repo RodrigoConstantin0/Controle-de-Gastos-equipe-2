@@ -1,17 +1,26 @@
 let gastos = [
-    {mes: 'Janeiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Fevereiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Março', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Abril', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Maio', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Junho', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Julho', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Agosto', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Setembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Outubro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Novembro', gastosMensais:{}, totalGastos: 0, Sobrou: 0 },
-    {mes: 'Dezembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0 },
+    { mes: 'Janeiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Fevereiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Março', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Abril', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Maio', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Junho', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Julho', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Agosto', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Setembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Outubro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Novembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Dezembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
 ];
+
+function orcamentoTotal() {
+
+    let gastoAnual = parseFloat(prompt(`Qual o seu orçamento anual?`))
+
+    for (let i = 0; i < gastos.length; i++) {
+        gastos[i].orcamentoMensal = (gastoAnual / 12)
+    }
+}
 
 function preencherGastosDoMes(mes) {
     gastos[mes].gastosMensais.Energia = parseFloat(prompt(`Digite o valor gasto com Energia em ${gastos[mes].mes}`))
@@ -34,7 +43,7 @@ function editarGastosDoMes(mes) {
         let novoValor = parseFloat(prompt(`Digite o novo valor para ${campo} em ${gastos[mes].mes}:`));
         gastos[mes].gastosMensais[campo] = novoValor
         console.log(`Gasto editado com sucesso! Novo valor de ${campo} em ${gastos[mes].mes}: ${novoValor}`)
-        
+
         let deletar = prompt(`Deseja deletar algum gasto de ${gastos[mes].mes}? (sim/não)`);
         if (deletar.toLowerCase() === 'sim') {
             let tipoGasto = prompt(`Digite o tipo de gasto que deseja deletar de ${gastos[mes].mes}:`);
@@ -65,13 +74,19 @@ function totalGastosDoMes(mes) {
     return total
 }
 
-console.log(gastos)
-editarGastosDoMes(0) //Janeiro
-totalGastosDoMes(0) //Janeiro
-totalGastosDoMes(1) //Fevereiro
-
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
     console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
     gastos[mes].totalGastos = totalGastosDoMes(i).toFixed(2)
 }
+
+
+//funções
+
+
+console.log(gastos)
+editarGastosDoMes(0) //Janeiro
+totalGastosDoMes(0) //Janeiro
+totalGastosDoMes(1) //Fevereiro
+
+orcamentoTotal()
