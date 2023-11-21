@@ -73,5 +73,5 @@ totalGastosDoMes(1) //Fevereiro
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
     console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
-    gastos[mes].totalGastos = totalGastosDoMes(i).toFixed(2)
+    gastos[i].totalGastos = totalGastosDoMes(i).toFixed(2)
 }
