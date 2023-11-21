@@ -54,8 +54,6 @@ function deletarGastoDoMes(mes, tipoGasto) {
         console.log(`Tipo de2 gasto inválido ou inexistente para o mês de ${gastos[mes].mes}.`);
     }
 }
-editarGastosDoMes(0);
-
 function totalGastosDoMes(mes) {
     let gastosMensais = gastos[mes].gastosMensais;
     let total = 0
