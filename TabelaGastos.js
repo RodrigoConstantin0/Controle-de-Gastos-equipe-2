@@ -53,8 +53,6 @@ function menuEditarGastos(){
         }
     }
 }
-
-
 function editarGastosDoMes(mes) {
     let campo = prompt(`Digite o campo que deseja editar em ${gastos[mes].mes} (Energia, Agua, Aluguel, Escola, Supermercado):`)
     campo = campo.charAt(0).toUpperCase() + campo.slice(1).toLowerCase()
@@ -91,14 +89,11 @@ function totalGastosDoMes(mes) {
     }
     return total
 }
-
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
     console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
     gastos[i].totalGastos = totalGastosDoMes(i).toFixed(2);
 }
-
-
 //total gastos no ano
 function totalAno() {
     let totaisNoAno = {
@@ -110,8 +105,6 @@ function totalAno() {
     }
     console.log(`${JSON.stringify(totaisNoAno)}`)
 }
-
-
 //Funções por tipo de gasto
 function totalEnergia() {
     let totalAnualEnergia = 0;
@@ -120,7 +113,6 @@ function totalEnergia() {
     }
     return totalAnualEnergia
 }
-
 //Agua
 function totalAgua() {
     let totalAnualAgua = 0;
@@ -130,7 +122,6 @@ function totalAgua() {
     }
     return totalAnualAgua;
 }
-
 //Aluguel
 function totalAluguel() {
     let totalAnualAluguel = 0;
@@ -140,7 +131,6 @@ function totalAluguel() {
     }
     return totalAnualAluguel;
 }
-
 //Escola
 function totalEscola() {
     let totalAnualEscola = 0;
@@ -150,7 +140,6 @@ function totalEscola() {
     }
     return totalAnualEscola;
 }
-
 //Supermercado
 function totalSupermercado() {
     let totalAnualSupermercado = 0;
@@ -160,7 +149,6 @@ function totalSupermercado() {
     }
     return totalAnualSupermercado;
 }
-
 // Chamadas de funções
 console.log(gastos)
 menuEditarGastos()
