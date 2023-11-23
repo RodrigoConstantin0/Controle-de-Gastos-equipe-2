@@ -1,16 +1,16 @@
 let gastos = [
-    { mes: 'Janeiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Fevereiro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Março', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Abril', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Maio', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Junho', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Julho', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Agosto', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Setembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Outubro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Novembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
-    { mes: 'Dezembro', gastosMensais: {}, totalGastos: 0, Sobrou: 0, orcamentoMensal: 0 },
+    { mes: 'Janeiro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Fevereiro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Março', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Abril', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Maio', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Junho', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Julho', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Agosto', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Setembro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Outubro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Novembro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
+    { mes: 'Dezembro', gastosMensais: {}, totalGastos: 0, orcamentoMensal: 0 },
 ];
 
 function orcamentoTotal() {
@@ -34,19 +34,19 @@ function preencherGastosDoMes(mes) {
 for (let i = 0; i < gastos.length; i++) {
     preencherGastosDoMes(i)
 }
-function menuEditarGastos(){
+function menuEditarGastos() {
     let continuar = true;
-    const meses = ['Janeiro','Fevereiro','Março',
-    'Abril','Maio','Junho','Julho','Agosto',
-    'Setembro','Outubro','Novembro','Dezembro'];
+    const meses = ['Janeiro', 'Fevereiro', 'Março',
+        'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
+        'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-    while (continuar){
+    while (continuar) {
         let escolhaMes = prompt("Digite o nome do mês que deseja editar ou 'sair' para sair:");
         let escolhaIndex = meses.indexOf(escolhaMes.charAt(0).toUpperCase() + escolhaMes.slice(1).toLowerCase());
-        
-        if (escolhaIndex !== -1){
+
+        if (escolhaIndex !== -1) {
             editarGastosDoMes(escolhaIndex);
-        } else if (escolhaMes.toLowerCase() === 'sair'){
+        } else if (escolhaMes.toLowerCase() === 'sair') {
             continuar = false;
         } else {
             console.log("Nome do mês inválido. Tente novamente ou digite 'sair' para sair.");
@@ -78,7 +78,7 @@ function deletarGastoDoMes(mes, tipoGasto) {
         delete gastos[mes].gastosMensais[tipoGasto];
         console.log(`Gasto de ${tipoGasto} em ${gastos[mes].mes} foi removido.`);
     } else {
-        console.log(`Tipo de2 gasto inválido ou inexistente para o mês de ${gastos[mes].mes}.`);
+        console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[mes].mes}.`);
     }
 }
 function totalGastosDoMes(mes) {
@@ -91,7 +91,7 @@ function totalGastosDoMes(mes) {
 }
 //Gastos de todos os meses
 for (let i = 0; i < gastos.length; i++) {
-    console.log(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)}`);
+    document.write(`Total de gastos em ${gastos[i].mes}: R$${totalGastosDoMes(i).toFixed(2)} <br>`);
     gastos[i].totalGastos = totalGastosDoMes(i).toFixed(2);
 }
 //total gastos no ano
@@ -151,6 +151,13 @@ function totalSupermercado() {
 }
 // Chamadas de funções
 console.log(gastos)
+
+
+// 
+let divgastos = document.getElementById('gastos', '<br>');
+divgastos.innerHTML = JSON.stringify(gastos);
+
+// document.write(gastos)
 menuEditarGastos()
 totalGastosDoMes(0) //Janeiro
 totalGastosDoMes(1) //Fevereiro
