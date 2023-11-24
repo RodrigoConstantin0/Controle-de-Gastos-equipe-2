@@ -23,16 +23,17 @@ function adicionarGasto() {
     const tipoGasto = form.elements['tipoGasto'].value.trim();
     const novoValor = parseFloat(form.elements['valor'].value);
     const escolhaIndex = gastos.findIndex(item => item.mes.toLowerCase() === escolhaMes.toLowerCase());
-
-    gastos[escolhaIndex].gastosMensais[tipoGasto] += parseInt(novoValor);
-    gastos[escolhaIndex].totalGastos = parseInt(gastos[escolhaIndex].totalGastos) + parseInt(novoValor);
-    gastos[escolhaIndex].sobrou = parseInt(gastos[escolhaIndex].sobrou) - parseInt(novoValor);
-    gastosTotal[tipoGasto] = parseInt(gastosTotal[tipoGasto]) + parseInt(novoValor);
-
-    console.log(`Gasto adicionado com sucesso! ${tipoGasto} em ${gastos[escolhaIndex].mes}: ${novoValor}`);
-    form.reset();
-    console.log(gastos)
-    console.log(gastosTotal)
+    if (gastos[escolhaIndex].gastosMensais[tipoGasto] != 0){
+     editarGastosDoMes(escolhaIndex);    
+    }else {
+        gastos[escolhaIndex].gastosMensais[tipoGasto] += parseInt(novoValor);
+        gastos[escolhaIndex].totalGastos = parseInt(gastos[escolhaIndex].totalGastos) + parseInt(novoValor);
+        gastos[escolhaIndex].sobrou = parseInt(gastos[escolhaIndex].sobrou) - parseInt(novoValor);
+        gastosTotal[tipoGasto] = parseInt(gastosTotal[tipoGasto]) + parseInt(novoValor);
+    
+        console.log(`Gasto adicionado com sucesso! ${tipoGasto} em ${gastos[escolhaIndex].mes}: ${novoValor}`);
+        form.reset(); 
+    }    
 }
 
 function orcamentoTotal() {
@@ -175,12 +176,16 @@ function totalSupermercado() {
 function removerGasto(indice) {
     const tipoGasto = prompt(`Digite o tipo de gasto que deseja remover para o mês ${gastos[indice].mes}:`);
     if (tipoGasto in gastos[indice].gastosMensais) {
+        let auxiliar =  gastos[indice].gastosMensais[tipoGasto];
         delete gastos[indice].gastosMensais[tipoGasto];
+        gastos[indice].totalGastos = parseInt(gastos[indice].totalGastos) - auxiliar;
+        gastos[indice].sobrou = parseInt(gastos[indice].sobrou) - auxiliar;
         console.log(`Gasto de ${tipoGasto} no mês de ${gastos[indice].mes} foi removido.`);
         criarTabela(); 
         } else {
         console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[indice].mes}.`);
     }
+    console.log(tipoGasto)
 }
 
 function criarTabela() {
@@ -230,7 +235,6 @@ function criarTabela() {
     //Retirar botão da tela
     // botaoGastos.style.display = 'none';    
 }
-
 function criarTabelaTotalAno() {
     const tabelaBody = document.getElementById('tabelaGastosTotalAnoBody');
     const tabelaGastos = document.getElementById('tabelaGastosTotalAno');
