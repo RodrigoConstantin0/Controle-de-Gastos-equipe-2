@@ -178,8 +178,8 @@ function removerGasto(indice) {
     if (tipoGasto in gastos[indice].gastosMensais) {
         delete gastos[indice].gastosMensais[tipoGasto];
         console.log(`Gasto de ${tipoGasto} no mês de ${gastos[indice].mes} foi removido.`);
-        criarTabela(); // Atualiza a tabela após a remoção do gasto
-    } else {
+        criarTabela(); 
+        } else {
         console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[indice].mes}.`);
     }
 }
