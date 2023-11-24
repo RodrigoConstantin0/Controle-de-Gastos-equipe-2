@@ -94,20 +94,8 @@ function editarGastosDoMes(mes) {
         }
     } else {
         console.log(`Campo inválido. Certifique-se de digitar um dos campos válidos: Energia, Agua, Aluguel, Escola, Supermercado`)
-    }
+    } 
 }
-
-function deletarGastoDoMes(mes, tipoGasto) {
-    tipoGasto = tipoGasto.charAt(0).toUpperCase() + tipoGasto.slice(1).toLowerCase();
-
-    if (tipoGasto in gastos[mes].gastosMensais) {
-        delete gastos[mes].gastosMensais[tipoGasto];
-        console.log(`Gasto de ${tipoGasto} em ${gastos[mes].mes} foi removido.`);
-    } else {
-        console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[mes].mes}.`);
-    }
-}
-
 function totalGastosDoMes(mes) {
     let gastosMensais = gastos[mes].gastosMensais;
     let total = 0
@@ -184,6 +172,18 @@ function totalSupermercado() {
     return totalAnualSupermercado;
 }
 
+
+function removerGasto(indice) {
+    const tipoGasto = prompt(`Digite o tipo de gasto que deseja remover para o mês ${gastos[indice].mes}:`);
+    if (tipoGasto in gastos[indice].gastosMensais) {
+        delete gastos[indice].gastosMensais[tipoGasto];
+        console.log(`Gasto de ${tipoGasto} no mês de ${gastos[indice].mes} foi removido.`);
+        criarTabela(); // Atualiza a tabela após a remoção do gasto
+    } else {
+        console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[indice].mes}.`);
+    }
+}
+
 function criarTabela() {
     const tabelaBody = document.getElementById('tabelaGastosBody');
     const tabelaGastos = document.getElementById('tabelaGastos');
@@ -202,7 +202,8 @@ function criarTabela() {
 
         if (temGasto) {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${mes}</td>
+            row.innerHTML = `
+            <td>${mes}</td>
             <td>${gastosMensais.Energia || 0}</td>
             <td>${gastosMensais.Agua || 0}</td>
             <td>${gastosMensais.Aluguel || 0}</td>
@@ -210,20 +211,25 @@ function criarTabela() {
             <td>${gastosMensais.Supermercado || 0}</td>
             <td>${gastos[i].totalGastos || 0}</td>
             <td>${gastos[i].sobrou < 0 ? "Orçamento insuficiente!" : "Orçamento suficiente para quitar gastos!"}</td>
-            <td>${gastos[i].orcamentoMensal || 0}</td>`;
+            <td>${gastos[i].orcamentoMensal || 0}</td>
+            <td><button onclick="removerGasto(${i})">Remover</button></td>`;
             tabelaBody.appendChild(row);
         }
-    }
-    
+     
+    }    
+    const botoesRemover = document.querySelectorAll('.remover-gasto');
+    botoesRemover.forEach((botao, indice) => {
+        botao.addEventListener('click', () => {
+            removerGasto(indice);
+        });
+    });
+
+    criarTabelaTotalAno();
     // Mostrar a tabela e o título
     tabelaGastos.style.display = 'table';
-    
     //Retirar botão da tela
-    // botaoGastos.style.display = 'none';
-    
-    criarTabelaTotalAno();
+    // botaoGastos.style.display = 'none';    
 }
-
 function criarTabelaTotalAno() {
     const tabelaBody = document.getElementById('tabelaGastosTotalAnoBody');
     const tabelaGastos = document.getElementById('tabelaGastosTotalAno');
@@ -241,9 +247,8 @@ function criarTabelaTotalAno() {
     
     // Mostrar a tabela
     tabelaGastos.style.display = 'table';
+    // Função para remover um gasto específico para o mês correspondente
 }
-
-
 // let divgastos = document.getElementById('gastos', '<br>');
 // divgastos.innerHTML = JSON.stringify(gastos);
 // document.write(gastos)
