@@ -219,7 +219,7 @@ function criarTabela() {
     tabelaGastos.style.display = 'table';
 
     //Retirar botão da tela
-    botaoGastos.style.display = 'none';
+    // botaoGastos.style.display = 'none';
 
     criarTabelaTotalAno();
 }
