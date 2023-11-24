@@ -1,42 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Gerador de Gastos</title>
-</head>
-<body>
-    <header>
-        <div class="container">
-          <h1>Controle De Gastos</h1>
-          <nav>
-            <ul>
-              <li><a href="#">Calculadora</a></li>
-              <li><a href="#">Sobre</a></li>
-              <li><a href="#">Contato</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-   
-    <h1><strong>GERADOR DE GASTOS MENSAIS</strong></h1>
-    
-      <div id="gastos">
-        
-      </div>
 
-    <!-- <footer>
-        <div class="container">
-          <nav>
-            <ul>
-              <li><a href="https://github.com/douglascaique" target="_blank">Douglas Caique</a></li>
-              <li><a href="https://github.com/JulianaMariaSousaMesquita" target="_blank">Juliana Mesquita</a></li>
-              <li><a href="https://github.com/RodrigoConstantin0" target="_blank">Rodrigo Constantino</a></li>
-            </ul>
-          </nav>
-        </div>
-      </footer> -->
-    <script src="TabelaGastos.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Gerador de Gastos</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Controle De Gastos</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Calculadora</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div>     
+      <form id="gastoForm">
+        <h1>Formulário de Gastos</h1>
+        <label for="mes">Mês:</label>
+        <select id="mes" name="mes" required>
+          <option value="Janeiro">Janeiro</option>
+          <option value="Fevereiro">Fevereiro</option>
+          <option value="Março">Março</option>
+          <option value="Abril">Abril</option>
+          <option value="Maio">Maio</option>
+          <option value="Junho">Junho</option>
+          <option value="Julho">Julho</option>
+          <option value="Agosto">Agosto</option>
+          <option value="Setembro">Setembro</option>
+          <option value="Outubro">Outubro</option>
+          <option value="Novembro">Novembro</option>
+          <option value="Dezembro">Dezembro</option>
+        </select>
+
+        <label for="tipoGasto">Tipo de Gasto:</label>
+        <select id="tipoGasto" name="tipoGasto" required>
+          <option value="Energia">Energia</option>
+          <option value="Agua">Água</option>
+          <option value="Aluguel">Aluguel</option>
+          <option value="Escola">Escola</option>
+          <option value="Supermercado">Supermercado</option>
+        </select>
+
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor" name="valor" step="0.01" required>
+
+        <button type="button" onclick="adicionarGasto()">Adicionar Gasto</button>
+      </form>
+    </div>
+    <div>
+      <button id="botaoGastos" onclick="criarTabela()">Mostrar Gastos</button>
+
+      <table border="1" id="tabelaGastos" style="display: none;">
+        <thead>
+          <tr>
+            <th>Mês</th>
+            <th>Energia</th>
+            <th>Água</th>
+            <th>Aluguel</th>
+            <th>Escola</th>
+            <th>Supermercado</th>
+            <th>Total Gasto no mês</th>
+            <th>Orçamento</th>
+            <th>Orçamento mensal</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaGastosBody">
+        </tbody>
+      </table>
+    </div>
+    <div id="gastosTotalAno">
+      <table border="1" id="tabelaGastosTotalAno" style="display: none;">
+        <thead>
+          <tr>
+            <th>Total Energia</th>
+            <th>Total Água</th>
+            <th>Total Aluguel</th>
+            <th>Total Escola</th>
+            <th>Total Supermercado</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaGastosTotalAnoBody">
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-social">
+      <nav>
+        <ul>
+          <li><a href="https://github.com/douglascaique" target="_blank">Douglas Caique</a></li>
+          <li><a href="https://github.com/JulianaMariaSousaMesquita" target="_blank">Juliana Mesquita</a></li>
+          <li><a href="https://github.com/RodrigoConstantin0" target="_blank">Rodrigo Constantino</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="TabelaGastos.js"></script>
 </body>
+
 </html>
