@@ -203,42 +203,42 @@ function criarTabela() {
         if (temGasto) {
             const row = document.createElement('tr');
             row.innerHTML = `<td>${mes}</td>
-                            <td>${gastosMensais.Energia || 0}</td>
-                            <td>${gastosMensais.Agua || 0}</td>
-                            <td>${gastosMensais.Aluguel || 0}</td>
-                            <td>${gastosMensais.Escola || 0}</td>
-                            <td>${gastosMensais.Supermercado || 0}</td>
-                            <td>${gastos[i].totalGastos || 0}</td>
-                            <td>${gastos[i].sobrou < 0 ? "Orçamento insuficiente!" : "Orçamento suficiente para quitar gastos!"}</td>
-                            <td>${gastos[i].orcamentoMensal || 0}</td>`;
+            <td>${gastosMensais.Energia || 0}</td>
+            <td>${gastosMensais.Agua || 0}</td>
+            <td>${gastosMensais.Aluguel || 0}</td>
+            <td>${gastosMensais.Escola || 0}</td>
+            <td>${gastosMensais.Supermercado || 0}</td>
+            <td>${gastos[i].totalGastos || 0}</td>
+            <td>${gastos[i].sobrou < 0 ? "Orçamento insuficiente!" : "Orçamento suficiente para quitar gastos!"}</td>
+            <td>${gastos[i].orcamentoMensal || 0}</td>`;
             tabelaBody.appendChild(row);
         }
     }
-
+    
     // Mostrar a tabela e o título
     tabelaGastos.style.display = 'table';
-
+    
     //Retirar botão da tela
     // botaoGastos.style.display = 'none';
-
+    
     criarTabelaTotalAno();
 }
 
 function criarTabelaTotalAno() {
     const tabelaBody = document.getElementById('tabelaGastosTotalAnoBody');
     const tabelaGastos = document.getElementById('tabelaGastosTotalAno');
-
+    
     // Limpar o conteúdo anterior da tabela
     tabelaBody.innerHTML = '';
-
+    
     const row = document.createElement('tr');
     row.innerHTML = `       <td>${gastosTotal.Energia || 0}</td>
-                            <td>${gastosTotal.Agua || 0}</td>
-                            <td>${gastosTotal.Aluguel || 0}</td>
-                            <td>${gastosTotal.Escola || 0}</td>
-                            <td>${gastosTotal.Supermercado || 0}</td>`;
+    <td>${gastosTotal.Agua || 0}</td>
+    <td>${gastosTotal.Aluguel || 0}</td>
+    <td>${gastosTotal.Escola || 0}</td>
+    <td>${gastosTotal.Supermercado || 0}</td>`;
     tabelaBody.appendChild(row);
-
+    
     // Mostrar a tabela
     tabelaGastos.style.display = 'table';
 }
