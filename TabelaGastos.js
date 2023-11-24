@@ -84,18 +84,18 @@ function editarGastosDoMes(mes) {
 
     if (campo in gastos[mes].gastosMensais) {
         let novoValor = parseFloat(prompt(`Digite o novo valor para ${campo} em ${gastos[mes].mes}:`));
+        let aux = gastos[mes].gastosMensais[campo]
         gastos[mes].gastosMensais[campo] = novoValor
+        gastos[mes].totalGastos = parseInt(gastos[mes].totalGastos) + parseInt(novoValor) - aux;
+        gastos[mes].sobrou = parseInt(gastos[mes].sobrou) - parseInt(novoValor) + aux;
+        gastosTotal[campo] = parseInt(gastosTotal[campo]) + parseInt(novoValor) - aux;
         console.log(`Gasto editado com sucesso! Novo valor de ${campo} em ${gastos[mes].mes}: ${novoValor}`)
-
-        let deletar = prompt(`Deseja deletar algum gasto de ${gastos[mes].mes}? (sim/não)`);
-        if (deletar.toLowerCase() === 'sim') {
-            let tipoGasto = prompt(`Digite o tipo de gasto que deseja deletar de ${gastos[mes].mes}:`);
-            deletarGastoDoMes(mes, tipoGasto);
-        }
     } else {
         console.log(`Campo inválido. Certifique-se de digitar um dos campos válidos: Energia, Agua, Aluguel, Escola, Supermercado`)
-    } 
+    }
+    criarTabela();
 }
+
 function totalGastosDoMes(mes) {
     let gastosMensais = gastos[mes].gastosMensais;
     let total = 0
@@ -172,7 +172,6 @@ function totalSupermercado() {
     return totalAnualSupermercado;
 }
 
-
 function removerGasto(indice) {
     const tipoGasto = prompt(`Digite o tipo de gasto que deseja remover para o mês ${gastos[indice].mes}:`);
     if (tipoGasto in gastos[indice].gastosMensais) {
@@ -212,7 +211,8 @@ function criarTabela() {
             <td>${gastos[i].totalGastos || 0}</td>
             <td>${gastos[i].sobrou < 0 ? "Orçamento insuficiente!" : "Orçamento suficiente para quitar gastos!"}</td>
             <td>${gastos[i].orcamentoMensal || 0}</td>
-            <td><button onclick="removerGasto(${i})">Remover</button></td>`;
+            <td><button onclick="removerGasto(${i})">Remover</button></td>
+            <td><button class="btn-warning-yellow" onclick="editarGastosDoMes(${i})">Editar</button></td>`;
             tabelaBody.appendChild(row);
         }
      
@@ -230,6 +230,7 @@ function criarTabela() {
     //Retirar botão da tela
     // botaoGastos.style.display = 'none';    
 }
+
 function criarTabelaTotalAno() {
     const tabelaBody = document.getElementById('tabelaGastosTotalAnoBody');
     const tabelaGastos = document.getElementById('tabelaGastosTotalAno');

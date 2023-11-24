@@ -131,3 +131,14 @@ footer {
   background-color: #333;
 }
 
+.btn-warning-yellow {
+  color: #fff;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-warning-yellow:hover {
+  color: #fff;
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
