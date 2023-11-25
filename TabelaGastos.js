@@ -44,7 +44,7 @@ function orcamentoTotal() {
             gastos[i].orcamentoMensal = orcamento / 12;
             gastos[i].sobrou = orcamento / 12; // total
         }
-        console.log(orcamento);
+        console.log(`O Orçamento adicionado é de R$:${orcamento}, divido em ${orcamento / 12} por mês.`);
         criarTabela();
     } else {
         console.log('Por favor, insira um valor válido para o orçamento.');
@@ -73,6 +73,9 @@ function editarGastosDoMes(mes) {
 
 function removerGasto(indice) {
     const tipoGasto = prompt(`Digite o tipo de gasto que deseja remover para o mês ${gastos[indice].mes}:`);
+    // tipoGasto = tipoGasto.charAt(0).toUpperCase() + tipoGasto.slice(1).toLowerCase()
+
+
     if (tipoGasto in gastos[indice].gastosMensais) {
         let auxiliar = gastos[indice].gastosMensais[tipoGasto];
         delete gastos[indice].gastosMensais[tipoGasto];
@@ -94,7 +97,8 @@ function criarTabelaTotalAno() {
     tabelaBody.innerHTML = '';
 
     const row = document.createElement('tr');
-    row.innerHTML = `       <td>${gastosTotal.Energia || 0}</td>
+    row.innerHTML = `
+    <td>${gastosTotal.Energia || 0}</td>
     <td>${gastosTotal.Agua || 0}</td>
     <td>${gastosTotal.Aluguel || 0}</td>
     <td>${gastosTotal.Escola || 0}</td>
