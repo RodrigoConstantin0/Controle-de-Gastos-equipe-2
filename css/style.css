@@ -35,7 +35,10 @@ h1 {
 
 nav ul {
   list-style: none;
+  display: flex;
+  justify-content: center;
 }
+
 nav ul li {
   display: inline;
   margin-left: 20px;
