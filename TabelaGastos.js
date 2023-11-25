@@ -32,6 +32,7 @@ function adicionarGasto() {
         console.log(`Gasto adicionado com sucesso! ${tipoGasto} em ${gastos[escolhaIndex].mes}: ${novoValor}`);
         form.reset();
     }
+    criarTabela()
 }
 
 

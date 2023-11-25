@@ -42,7 +42,10 @@ ul{
     text-decoration: none;
 }
   img {
-    flex-direction: column;       
+    flex-direction: column;   
+    border: #001510 transparent 3px;
+    border-radius: 30px;  
+    box-shadow: #b0f1e2 1px 1px 3px;  
   }
   .Guia-Usuario{
     text-align: center;
