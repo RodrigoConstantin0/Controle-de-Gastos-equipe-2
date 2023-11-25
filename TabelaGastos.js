@@ -73,21 +73,19 @@ function editarGastosDoMes(mes) {
 
 function removerGasto(indice) {
     const tipoGasto = prompt(`Digite o tipo de gasto que deseja remover para o mês ${gastos[indice].mes}:`);
-    // tipoGasto = tipoGasto.charAt(0).toUpperCase() + tipoGasto.slice(1).toLowerCase()
-
-
     if (tipoGasto in gastos[indice].gastosMensais) {
-        let auxiliar = gastos[indice].gastosMensais[tipoGasto];
+        let valorRemovido = gastos[indice].gastosMensais[tipoGasto];
         delete gastos[indice].gastosMensais[tipoGasto];
-        gastos[indice].totalGastos = parseInt(gastos[indice].totalGastos) - auxiliar;
-        gastos[indice].sobrou = parseInt(gastos[indice].sobrou) - auxiliar;
+        gastos[indice].totalGastos -= valorRemovido;
+        gastos[indice].sobrou -= valorRemovido;
+        gastosTotal[tipoGasto] -= valorRemovido;
         console.log(`Gasto de ${tipoGasto} no mês de ${gastos[indice].mes} foi removido.`);
         criarTabela();
     } else {
         console.log(`Tipo de gasto inválido ou inexistente para o mês de ${gastos[indice].mes}.`);
     }
-    console.log(tipoGasto)
 }
+
 
 function criarTabelaTotalAno() {
     const tabelaBody = document.getElementById('tabelaGastosTotalAnoBody');
