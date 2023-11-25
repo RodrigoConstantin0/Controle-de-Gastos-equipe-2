@@ -26,6 +26,7 @@ body, html {
   padding: 0;
 }
 body {
+  align-items: center;
   background: #00bf8f;
   background: -webkit-linear-gradient(to top, #001510, #00bf8f);
   background: linear-gradient(to top, #001510, #00bf8f);

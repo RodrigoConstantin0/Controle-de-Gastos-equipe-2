@@ -19,10 +19,11 @@ header {
     justify-content: space-between;
     align-items: center;
   }
-body, html {
+body, html {  
   width: 100%;
   margin: 0;
   padding: 0;
+
  }
 body {
   align-items: center;
