@@ -20,12 +20,13 @@ header {
     align-items: center;
   }
 body, html {
-  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-}
+ }
 body {
+  align-items: center;
+  padding: 0px;
   background: #00bf8f;
   background: -webkit-linear-gradient(to top, #001510, #00bf8f);
   background: linear-gradient(to top, #001510, #00bf8f);
@@ -41,13 +42,14 @@ ul{
     padding: 5px;
     text-decoration: none;
 }
-  img {
+ .Guia-Usuario img {
     flex-direction: column;   
     border: #001510 transparent 3px;
     border-radius: 30px;  
-    box-shadow: #b0f1e2 1px 1px 3px;  
+    box-shadow: #b0f1e2 1px 1px 3px;
+
   }
-  .Guia-Usuario{
+  .Guia-Usuario {
     text-align: center;
   }
   p {
