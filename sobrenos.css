@@ -18,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
 body, html {
   height: 100%;
   width: 100%;
@@ -29,6 +29,7 @@ body {
   background: #00bf8f;
   background: -webkit-linear-gradient(to top, #001510, #00bf8f);
   background: linear-gradient(to top, #001510, #00bf8f);
+  overflow: hidden;
 }
 p {
 border: 2px solid #333;
@@ -39,14 +40,30 @@ padding: 20px;
 background-color: #001510;
 color:#b0f1e2
 }
-ul{
+.container ul{
   list-style-type: none;
 }
-li a {
+.container li a {
     border: 2px solid #45a049;
     border-radius: 5px;
     text-align: justify ;
     color:#b0f1e2;
     padding: 5px;
     text-decoration: none;
+  
+}
+.footer-social nav ul{
+  display:flex;
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+ 
+  
+}
+.footer-social nav ul li {
+  margin-right: 10px;  
+}
+.footer-social img {
+  width: 80px;
+  overflow: auto;
 }
