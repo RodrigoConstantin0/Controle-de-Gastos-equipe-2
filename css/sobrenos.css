@@ -57,13 +57,16 @@ color:#b0f1e2
   list-style: none;
   padding: 0;
   text-decoration: none;
- 
+  justify-content: space-evenly;
   
 }
 .footer-social nav ul li {
   margin-right: 10px;  
+  
 }
 .footer-social img {
   width: 80px;
   overflow: auto;
+  background-color: black;
+  border-radius: 45%;
 }
