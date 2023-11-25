@@ -15,27 +15,24 @@
       <nav>
         <ul>
           <li><a href="/src/guiadousuario.html">Guia de uso</a></li>
-          <li><a href="/src/sobrenos.html">Sobre Nós</a></li>                    
+          <li><a href="/src/sobrenos.html">Sobre Nós</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <div>     
+    <div>
 
       <form id='orcamentoForm'>
         <h1>Orçamento Anual</h1>
         <label for="orcamento">Orçamento Anual</label>
-        <input type="number" id="orcamento" >
+        <input type="number" id="orcamento" onchange="habilitarDesabilitarFormulario()">
         <button onclick="orcamentoTotal()" type="button">Definir Orçamento</button>
       </form>
 
-      <form id="gastoForm">
-      
-
+      <form id="gastoForm" style="display: none;">
         <h1>Formulário de Gastos</h1>
-
         <label for="mes">Mês:</label>
         <select id="mes" name="mes" required>
           <option value="Janeiro">Janeiro</option>
@@ -51,7 +48,6 @@
           <option value="Novembro">Novembro</option>
           <option value="Dezembro">Dezembro</option>
         </select>
-
         <label for="tipoGasto">Tipo de Gasto:</label>
         <select id="tipoGasto" name="tipoGasto" required>
           <option value="Energia">Energia</option>
@@ -60,10 +56,8 @@
           <option value="Escola">Escola</option>
           <option value="Supermercado">Supermercado</option>
         </select>
-
         <label for="valor">Valor:</label>
         <input type="number" id="valor" name="valor" step="0.01" required>
-
         <button type="button" onclick="adicionarGasto()">Adicionar Gasto</button>
       </form>
     </div>
@@ -107,7 +101,7 @@
     </div>
   </main>
 
-  
+
   <script src="TabelaGastos.js"></script>
 </body>
 

@@ -38,6 +38,7 @@ function adicionarGasto() {
 
 function orcamentoTotal() {
     const orcamento = parseFloat(document.getElementById('orcamento').value.trim());
+    const gastoForm = document.getElementById('gastoForm');
 
     if (!isNaN(orcamento)) {
         for (let i = 0; i < gastos.length; i++) {
@@ -45,7 +46,13 @@ function orcamentoTotal() {
             gastos[i].sobrou = orcamento / 12; // total
         }
         console.log(`O Orçamento adicionado é de R$:${orcamento}, divido em ${orcamento / 12} por mês.`);
-        criarTabela();
+        
+        if(gastoForm.style.display === 'none'){
+            gastoForm.style.display = 'block';  
+        }else{
+            criarTabela();
+        }
+
     } else {
         console.log('Por favor, insira um valor válido para o orçamento.');
     }
@@ -150,12 +157,7 @@ function criarTabela() {
     });
 
     criarTabelaTotalAno();
-    // Mostrar a tabela e o título
-    tabelaGastos.style.display = 'table';
-    //Retirar botão da tela
-    // botaoGastos.style.display = 'none';    
+    tabelaGastos.style.display = 'table';  
 }
-
-
 
 orcamentoTotal()
